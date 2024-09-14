@@ -3,12 +3,13 @@ import githubIcon from "@/icons/github-icon.svg";
 import gmailIcon from "@/icons/google-gmail.svg";
 import instagramIcon from "@/icons/instagram-icon.svg";
 import linkedinIcon from "@/icons/linkedin-icon.svg";
+import openInNewIcon from "@/icons/open_in_new.svg";
 import jobstreetIcon from "@/icons/seek-icon.svg";
 import profilePicture from "@/images/safarila.webp";
 import GenerateDate from "@/utils/GenerateDate";
 import AOS from "aos";
 import Image from "next/image";
-import { ReactElement, useEffect } from "react";
+import { ReactElement, useEffect, useState } from "react";
 import { NextPageWithLayout } from "./_app";
 
 type ProjectType = {
@@ -22,6 +23,7 @@ type ProjectType = {
 };
 
 const Page: NextPageWithLayout = () => {
+  const [showAllExp, setShowAllExp] = useState<boolean>(false);
   useEffect(() => {
     AOS.init({
       once: true,
@@ -29,6 +31,14 @@ const Page: NextPageWithLayout = () => {
   }, []);
 
   const projects: ProjectType[] = [
+    {
+      name: "julpik.web.id",
+      position: "Frontend developer - Individu",
+      url: "https://mandakiro.com",
+      start_date: 1687453200000,
+      description:
+        "Merealisasikan desain halaman web dari Figma menjadi HTML siap pakai.",
+    },
     {
       img: "/portfolio/mandakiro.png",
       name: "PT. Mandakiro Wastiru Pratara",
@@ -332,7 +342,7 @@ const Page: NextPageWithLayout = () => {
           <div className="relative mt-2 grid grid-cols-1 overflow-y-hidden">
             {projects.map((project, index) => (
               <div
-                className="relative flex gap-2"
+                className={`relative flex gap-2 ${index > 5 && showAllExp == false ? "hidden" : ""}`}
                 key={`${project.start_date}-${project.name}`}
               >
                 <div className="relative z-[11] mt-[6px] h-6 w-6 flex-shrink-0 rounded-full bg-gray-500 pt-0.5 text-center text-sm text-white">
@@ -346,9 +356,14 @@ const Page: NextPageWithLayout = () => {
                     <a
                       href={project.url}
                       target="_blank"
-                      className="font-bold capitalize hover:underline"
+                      className="flex gap-1 font-bold capitalize hover:underline"
                     >
-                      {project.name}
+                      <span>{project.name}</span>
+                      <Image
+                        src={openInNewIcon}
+                        alt="open link"
+                        className="h-[14px] w-[14px]"
+                      />
                     </a>
                   ) : (
                     <h2 className="font-bold">{project.name}</h2>
@@ -369,6 +384,13 @@ const Page: NextPageWithLayout = () => {
                 </div>
               </div>
             ))}
+            <button
+              type="button"
+              className={`${!showAllExp && "mt-8"} rounded-lg border bg-white px-5 py-2 uppercase hover:bg-gray-100`}
+              onClick={() => setShowAllExp(!showAllExp)}
+            >
+              {showAllExp ? "Tampilkan Beberapa" : "Tampilkan Semua"}
+            </button>
           </div>
         </div>
         <div id="edu" data-aos="fade-down">
