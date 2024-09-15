@@ -34,7 +34,7 @@ const Page: NextPageWithLayout = () => {
     {
       name: "julpik.web.id",
       position: "Frontend developer - Individu",
-      url: "https://mandakiro.com",
+      url: "https://julpik.web.id",
       start_date: 1687453200000,
       description:
         "Merealisasikan desain halaman web dari Figma menjadi HTML siap pakai.",
