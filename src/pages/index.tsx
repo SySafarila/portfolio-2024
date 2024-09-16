@@ -32,6 +32,11 @@ const Page: NextPageWithLayout = () => {
 
   const projects: ProjectType[] = [
     {
+      name: "SMAN 2 Cibinong",
+      position: "Backend developer - Tim",
+      start_date: 1726246800000,
+    },
+    {
       name: "julpik.web.id",
       position: "Frontend developer - Individu",
       url: "https://julpik.web.id",
