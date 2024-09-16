@@ -1,4 +1,5 @@
 import MainLayout from "@/components/layouts/MainLayout";
+import { GenerateLicenceInterface } from "@/utils/generateLicence";
 import AOS from "aos";
 import axios, { AxiosError } from "axios";
 import Joi from "joi";
@@ -8,7 +9,6 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { NextPageWithLayout } from "../_app";
 import {
   GenerateLicenceFail,
-  GenerateLicenceObjectType,
   GenerateLicenceSuccess,
 } from "../api/generate-licence";
 
@@ -24,18 +24,17 @@ const Page: NextPageWithLayout = () => {
     getLicences();
   }, []);
 
-  const { register, handleSubmit } = useForm<GenerateLicenceObjectType>();
+  const { register, handleSubmit } = useForm<GenerateLicenceInterface>();
 
-  const onSubmit: SubmitHandler<GenerateLicenceObjectType> = async (data) => {
+  const onSubmit: SubmitHandler<GenerateLicenceInterface> = async (data) => {
     if (!generateReady) {
       return;
     }
     try {
       setGenerateReady(false);
-      const { password, key_id, product_id, product_name, expiration_time } =
-        data as GenerateLicenceObjectType;
+      const { key_id, product_id, product_name, expiration_time } =
+        data as GenerateLicenceInterface;
       const schema: Joi.ObjectSchema<any> = Joi.object({
-        password: Joi.string().min(8).required(),
         key_id: Joi.string().required(),
         product_id: Joi.string().required(),
         product_name: Joi.string().required(),
@@ -49,10 +48,9 @@ const Page: NextPageWithLayout = () => {
         {
           expiration_time,
           key_id,
-          password,
           product_id,
           product_name,
-        } as GenerateLicenceObjectType,
+        } as GenerateLicenceInterface,
         schema_options,
       );
 
@@ -118,18 +116,6 @@ const Page: NextPageWithLayout = () => {
           data-aos="fade-down"
         >
           <div className="grid grid-cols-1 gap-1">
-            <label htmlFor="password" className="font-bold">
-              Password*
-            </label>
-            <input
-              type="password"
-              id="password"
-              className="rounded-md border px-3 py-2"
-              {...register("password", { required: true, minLength: 8 })}
-              placeholder="Password"
-            />
-          </div>
-          <div className="grid grid-cols-1 gap-1">
             <label htmlFor="key_id" className="font-bold">
               Key ID*
             </label>
@@ -181,7 +167,7 @@ const Page: NextPageWithLayout = () => {
             type="submit"
             className="rounded-lg border bg-white px-5 py-2 uppercase hover:bg-gray-100"
           >
-            Generate
+            {generateReady ? "Generate" : "Loading..."}
           </button>
           <button
             type="button"

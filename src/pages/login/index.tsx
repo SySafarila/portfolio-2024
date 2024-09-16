@@ -2,7 +2,7 @@ import MainLayout from "@/components/layouts/MainLayout";
 import AOS from "aos";
 import axios from "axios";
 import Joi from "joi";
-import { ReactElement, useEffect } from "react";
+import { ReactElement, useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { NextPageWithLayout } from "../_app";
 
@@ -12,6 +12,7 @@ type LoginType = {
 };
 
 const Page: NextPageWithLayout = () => {
+  const [login, setLogin] = useState<boolean>(true);
   useEffect(() => {
     AOS.init({
       once: true,
@@ -21,7 +22,11 @@ const Page: NextPageWithLayout = () => {
   const { register, handleSubmit } = useForm<LoginType>();
 
   const onSubmit: SubmitHandler<LoginType> = async (data) => {
+    if (!login) {
+      return;
+    }
     try {
+      setLogin(false);
       const { password, email } = data as LoginType;
       const schema: Joi.ObjectSchema<any> = Joi.object({
         password: Joi.string().min(8).required(),
@@ -45,6 +50,7 @@ const Page: NextPageWithLayout = () => {
 
       window.location.reload();
     } catch (error: any) {
+      setLogin(true);
       alert(error.message);
     }
   };
@@ -84,7 +90,7 @@ const Page: NextPageWithLayout = () => {
           />
         </div>
         <button className="rounded-lg border bg-white px-5 py-2 uppercase hover:bg-gray-100">
-          Login
+          {login ? "Login" : "Loading..."}
         </button>
       </form>
     </div>

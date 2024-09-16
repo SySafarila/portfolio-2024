@@ -2,14 +2,9 @@ import generateLicence, {
   GenerateLicenceInterface,
 } from "@/utils/generateLicence";
 import axios from "axios";
-import bcrypt from "bcrypt";
 import Joi from "joi";
 import * as jose from "jose";
 import { NextApiRequest, NextApiResponse } from "next";
-
-export interface GenerateLicenceObjectType extends GenerateLicenceInterface {
-  password: string;
-}
 
 type GithubJwkType = {
   content: string;
@@ -31,8 +26,6 @@ export type GenerateLicenceFail = {
   message: string;
 };
 
-const hashedPassword = process.env.AUTH_PASSWORD ?? "";
-
 const getJwksFromGithub = async (): Promise<GithubJwkType> => {
   const bearerToken: string = `Bearer ${process.env.GITHUB_PERSONAL_ACCESS_TOKEN}`;
   const getJwks = await axios.get(process.env.JWK_SOURCE!, {
@@ -51,10 +44,9 @@ export default async function handler(
   res: NextApiResponse,
 ) {
   try {
-    const { password, key_id, product_id, product_name, expiration_time } =
-      req.body as GenerateLicenceObjectType;
+    const { key_id, product_id, product_name, expiration_time } =
+      req.body as GenerateLicenceInterface;
     const schema: Joi.ObjectSchema<any> = Joi.object({
-      password: Joi.string().min(8).required(),
       key_id: Joi.string().required(),
       product_id: Joi.string().required(),
       product_name: Joi.string().required(),
@@ -68,14 +60,12 @@ export default async function handler(
       {
         expiration_time,
         key_id,
-        password,
+
         product_id,
         product_name,
-      } as GenerateLicenceObjectType,
+      } as GenerateLicenceInterface,
       schema_options,
     );
-
-    await bcrypt.compare(password, hashedPassword);
 
     const bearerToken: string = `Bearer ${process.env.GITHUB_PERSONAL_ACCESS_TOKEN}`;
 
