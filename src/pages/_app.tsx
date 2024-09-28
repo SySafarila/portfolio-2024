@@ -1,5 +1,5 @@
 import "@/styles/globals.css";
-import '@splidejs/react-splide/css';
+import '@splidejs/splide/css';
 import "aos/dist/aos.css";
 import { NextPage } from "next";
 import type { AppProps } from "next/app";
