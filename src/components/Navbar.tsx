@@ -8,8 +8,13 @@ const Navbar = (): JSX.Element => {
       id="navbar"
     >
       <div className="mx-auto flex max-w-screen-lg justify-between px-4 py-4">
-        <Link href="/" className="font-bold">
-          SySafarila
+        <Link href="/" className="group flex border-2 border-black font-bold">
+          <span className="bg-white px-2 uppercase tracking-widest text-black transition duration-500 ease-in-out group-hover:bg-black group-hover:text-white">
+            Syahrul
+          </span>
+          <span className="bg-black px-2 uppercase tracking-widest text-white transition duration-500 ease-in-out group-hover:bg-white group-hover:text-black">
+            Safarila
+          </span>
         </Link>
         <button onClick={() => openModal("#modal-navbar")}>
           <svg
