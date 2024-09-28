@@ -48,7 +48,7 @@ const Page: NextPageWithLayout = () => {
 
       await axios.post("/api/login", { password, email });
 
-      window.location.reload();
+      window.location.replace("/dashboard");
     } catch (error: any) {
       setLogin(true);
       alert(error.message);

@@ -1,30 +1,29 @@
-import { ProjectType } from "@/pages";
 import Splide, { Options } from "@splidejs/splide";
 import Image from "next/image";
 import { useEffect } from "react";
+import { ProjectType } from "./projects";
+
+const options: Options = {
+  rewind: true,
+  autoplay: true,
+  pagination: false,
+  perPage: 5,
+  arrows: false,
+  type: "loop",
+  gap: "1rem",
+  breakpoints: {
+    770: {
+      perPage: 3,
+    },
+    600: {
+      perPage: 2,
+    },
+  },
+};
 
 const Clients = ({ projects }: { projects: ProjectType[] }): JSX.Element => {
-  const options: Options = {
-    rewind: true,
-    autoplay: true,
-    pagination: false,
-    perPage: 5,
-    arrows: false,
-    type: "loop",
-    gap: "1rem",
-    breakpoints: {
-      770: {
-        perPage: 3,
-      },
-      600: {
-        perPage: 2,
-      },
-    },
-  };
-
   useEffect(() => {
     new Splide(".splide", options).mount();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
