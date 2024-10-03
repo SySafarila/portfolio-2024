@@ -89,7 +89,10 @@ const Page: NextPageWithLayout = () => {
             placeholder="Password"
           />
         </div>
-        <button className="rounded-lg border bg-white px-5 py-2 uppercase hover:bg-gray-100">
+        <button
+          className="rounded-lg border bg-white px-5 py-2 uppercase hover:bg-gray-100"
+          disabled={login ? false : true}
+        >
           {login ? "Login" : "Loading..."}
         </button>
       </form>

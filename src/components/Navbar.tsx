@@ -1,7 +1,25 @@
 import { openModal } from "@/utils/modal";
 import Link from "next/link";
+import { useEffect } from "react";
 
 const Navbar = (): JSX.Element => {
+  useEffect(() => {
+    setTimeout(() => {
+      const syahrul = document.querySelector("#navbar #syahrul");
+      const safarila = document.querySelector("#navbar #safarila");
+
+      if (syahrul) {
+        syahrul.classList.remove("bg-black", "text-white");
+        syahrul.classList.add("bg-white", "text-black");
+      }
+
+      if (safarila) {
+        safarila.classList.remove("bg-white", "text-black");
+        safarila.classList.add("bg-black", "text-white");
+      }
+    }, 250);
+  }, []);
+
   return (
     <div
       className="fixed left-0 top-0 z-40 w-full border-b bg-white"
@@ -9,10 +27,16 @@ const Navbar = (): JSX.Element => {
     >
       <div className="mx-auto flex max-w-screen-lg justify-between px-4 py-4">
         <Link href="/" className="group flex border-2 border-black font-bold">
-          <span className="bg-white px-2 uppercase tracking-widest text-black transition duration-500 ease-in-out group-hover:bg-black group-hover:text-white">
+          <span
+            className="bg-black px-2 uppercase tracking-widest text-white transition duration-500 ease-in-out"
+            id="syahrul"
+          >
             Syahrul
           </span>
-          <span className="bg-black px-2 uppercase tracking-widest text-white transition duration-500 ease-in-out group-hover:bg-white group-hover:text-black">
+          <span
+            className="bg-white px-2 uppercase tracking-widest text-black transition duration-500 ease-in-out"
+            id="safarila"
+          >
             Safarila
           </span>
         </Link>
