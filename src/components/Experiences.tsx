@@ -39,7 +39,7 @@ const Experiences = (): JSX.Element => {
               ) : (
                 <h2 className="font-bold">{project.name}</h2>
               )}
-              <h2 className="text-sm">{project.position}</h2>
+              <h2 className="text-sm capitalize">{`${project.position} - ${project.type}`}</h2>
               <p className="max-w-screen-md">
                 {project.description ?? "Tidak ada deskripsi"}
               </p>
