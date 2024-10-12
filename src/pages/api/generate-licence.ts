@@ -46,7 +46,7 @@ export default async function handler(
   try {
     const { key_id, product_id, product_name, expiration_time } =
       req.body as GenerateLicenceInterface;
-    const schema: Joi.ObjectSchema<any> = Joi.object({
+    const schema: Joi.ObjectSchema<GenerateLicenceInterface> = Joi.object({
       key_id: Joi.string().required(),
       product_id: Joi.string().required(),
       product_name: Joi.string().required(),
@@ -60,7 +60,6 @@ export default async function handler(
       {
         expiration_time,
         key_id,
-
         product_id,
         product_name,
       } as GenerateLicenceInterface,

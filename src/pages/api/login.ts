@@ -9,6 +9,10 @@ export interface LoginObject {
   password: string;
 }
 
+interface JwtPayload extends jose.JWTPayload {
+  user_id: number;
+}
+
 const hashedPassword = process.env.AUTH_PASSWORD ?? "";
 
 export default async function handler(
@@ -17,7 +21,7 @@ export default async function handler(
 ) {
   try {
     const { password, email } = req.body as LoginObject;
-    const schema: Joi.ObjectSchema<any> = Joi.object({
+    const schema: Joi.ObjectSchema<LoginObject> = Joi.object({
       password: Joi.string().min(8).required(),
       email: Joi.string()
         .email({ tlds: { allow: false } })
@@ -35,15 +39,15 @@ export default async function handler(
       schema_options,
     );
 
-    if (
-      email == "sysafarila.official@gmail.com" &&
-      (await bcrypt.compare(password, hashedPassword))
-    ) {
+    const comparePassword = await bcrypt.compare(password, hashedPassword);
+
+    if (email == "sysafarila.official@gmail.com" && comparePassword) {
       const secret = new TextEncoder().encode(password);
 
       const jwt = await new jose.SignJWT({
         user_id: 1,
-      })
+        iss: email,
+      } as JwtPayload)
         .setExpirationTime("3h")
         .setIssuer(email)
         .setProtectedHeader({ alg: "HS256" })
