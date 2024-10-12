@@ -17,7 +17,7 @@ const Contacts = (): JSX.Element => {
         data-aos-delay="200"
         className="group relative"
       >
-        <span className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-[calc(50%+32px)] transform whitespace-nowrap rounded bg-gray-200 px-2 py-1 text-xs group-hover:block">
+        <span className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-[calc(50%+32px)] transform whitespace-nowrap rounded border border-gray-300 bg-gray-200 px-2 py-1 text-xs group-hover:block">
           Profil Instagram
         </span>
         <Image src={instagramIcon} alt="instagram" className="h-6 w-6" />
@@ -30,7 +30,7 @@ const Contacts = (): JSX.Element => {
         data-aos-delay="250"
         className="group relative"
       >
-        <span className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-[calc(50%+32px)] transform whitespace-nowrap rounded bg-gray-200 px-2 py-1 text-xs group-hover:block">
+        <span className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-[calc(50%+32px)] transform whitespace-nowrap rounded border border-gray-300 bg-gray-200 px-2 py-1 text-xs group-hover:block">
           Profil Github
         </span>
         <Image src={githubIcon} alt="github" className="h-6 w-6" />
@@ -43,7 +43,7 @@ const Contacts = (): JSX.Element => {
         data-aos-delay="300"
         className="group relative"
       >
-        <span className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-[calc(50%+32px)] transform whitespace-nowrap rounded bg-gray-200 px-2 py-1 text-xs group-hover:block">
+        <span className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-[calc(50%+32px)] transform whitespace-nowrap rounded border border-gray-300 bg-gray-200 px-2 py-1 text-xs group-hover:block">
           Profil LinkedIn
         </span>
         <Image src={linkedinIcon} alt="linkedin" className="h-6 w-6" />
@@ -56,7 +56,7 @@ const Contacts = (): JSX.Element => {
         data-aos-delay="350"
         className="group relative"
       >
-        <span className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-[calc(50%+32px)] transform whitespace-nowrap rounded bg-gray-200 px-2 py-1 text-xs group-hover:block">
+        <span className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-[calc(50%+32px)] transform whitespace-nowrap rounded border border-gray-300 bg-gray-200 px-2 py-1 text-xs group-hover:block">
           Profil JobStreet
         </span>
         <Image src={jobstreetIcon} alt="jobstreet" className="h-6 w-6" />
@@ -69,7 +69,7 @@ const Contacts = (): JSX.Element => {
         data-aos-delay="400"
         className="group relative"
       >
-        <span className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-[calc(50%+32px)] transform whitespace-nowrap rounded bg-gray-200 px-2 py-1 text-xs group-hover:block">
+        <span className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-[calc(50%+32px)] transform whitespace-nowrap rounded border border-gray-300 bg-gray-200 px-2 py-1 text-xs group-hover:block">
           Kirim Email
         </span>
         <Image src={gmailIcon} alt="gmail" className="h-6 w-6" />
