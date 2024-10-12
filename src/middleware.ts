@@ -11,11 +11,20 @@ export const middleware = async (request: NextRequest) => {
 
       await jose.jwtVerify(jwt, secret);
     } catch (error: any) {
-      const response = NextResponse.redirect(
-        new URL("/?status=logout", request.url)
-      );
-      response.cookies.delete("access_token");
-      return response;
+      if (request.nextUrl.pathname.startsWith("/api")) {
+        const response = NextResponse.json(
+          { message: "Unauthorized" },
+          { status: 401 },
+        );
+        response.cookies.delete("access_token");
+        return response;
+      } else {
+        const response = NextResponse.redirect(
+          new URL("/?status=logout", request.url),
+        );
+        response.cookies.delete("access_token");
+        return response;
+      }
     }
   }
 
