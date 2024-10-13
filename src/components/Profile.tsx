@@ -1,6 +1,5 @@
 import profilePicture from "@/images/safarila.webp";
 import Image from "next/image";
-import Link from "next/link";
 
 const Profile = (): JSX.Element => {
   return (
@@ -29,11 +28,12 @@ const Profile = (): JSX.Element => {
         juga bersedia untuk pindah domisili sesuai dengan kebutuhan pekerjaan.
       </p>
       <div className="flex justify-center">
-        <Link
+        <a
           className="flex items-center gap-1 whitespace-nowrap rounded-md bg-gray-200 px-3 py-1 capitalize hover:bg-gray-300"
           data-aos="fade-down"
           data-aos-delay="150"
           href="/files/resume.pdf"
+          target="_blank"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -51,7 +51,7 @@ const Profile = (): JSX.Element => {
             </g>
           </svg>
           <span className="pb-0.5">Download Resume (PDF)</span>
-        </Link>
+        </a>
       </div>
     </div>
   );
