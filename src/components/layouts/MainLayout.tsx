@@ -18,7 +18,7 @@ export default function MainLayout(props: PropsType): JSX.Element {
           name="description"
           content={
             props.description ??
-            "Fresh graduate Teknik Informatika Universitas Putra Indonesia 2024, dengan pengalaman lebih dari 2 tahun sebagai freelance programmer individu maupun tim. Terbuka untuk peluang baru di dalam atau di luar keahlian, dengan tujuan memperluas pengalaman dan jaringan profesional. Siap berkontribusi di berbagai industri dengan kemampuan coding, pemecahan masalah, dan kolaborasi tim."
+            "Saya merupakan lulusan baru dari Universitas Putra Indonesia, Program Studi Teknik Informatika (S1), tahun 2024. Saya memiliki pengalaman lebih dari 2 tahun sebagai freelance programmer, baik secara individu maupun dalam tim. Saat ini, saya terbuka untuk setiap kesempatan kerja, baik di dalam maupun di luar bidang keahlian saya, dengan tujuan memperluas pengalaman serta membangun relasi baru. Saya juga bersedia untuk pindah domisili sesuai dengan kebutuhan pekerjaan."
           }
         />
         <meta
@@ -31,13 +31,17 @@ export default function MainLayout(props: PropsType): JSX.Element {
         <link rel="icon" href="/favicon.svg" />
       </Head>
 
-      <Navbar />
+      <div className="tailwind">
+        <Navbar />
+        <Navbar />
 
-      <main className="mx-auto mb-20 mt-[61px] grid max-w-screen-lg grid-cols-1 gap-y-5 overflow-x-hidden p-4">
-        {props.children}
-      </main>
+        <Navbar />
 
-      <NavbarMenu />
+        <main className="mx-auto mb-20 mt-[61px] grid max-w-screen-lg grid-cols-1 gap-y-5 overflow-x-hidden p-4">
+          {props.children}
+        </main>
+        <NavbarMenu />
+      </div>
     </>
   );
 }
