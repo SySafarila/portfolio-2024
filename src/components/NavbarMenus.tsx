@@ -1,7 +1,7 @@
 import { closeModal } from "@/utils/modal";
 import Link from "next/link";
 
-const NavbarMenu = (): JSX.Element => {
+const NavbarMenus = (): JSX.Element => {
   return (
     <div
       className="fixed left-0 top-0 z-50 hidden h-full w-full overflow-y-auto overflow-x-hidden bg-transparent backdrop-blur-0 transition-all ease-in-out"
@@ -41,7 +41,7 @@ const NavbarMenu = (): JSX.Element => {
               </svg>
             </button>
           </div>
-          <div className="h-fit max-h-80 overflow-y-auto overflow-x-hidden">
+          <div className="flex h-fit max-h-80 flex-col gap-2 overflow-y-auto overflow-x-hidden">
             <Link
               href="/dashboard"
               className="hover:underline"
@@ -67,4 +67,4 @@ const NavbarMenu = (): JSX.Element => {
   );
 };
 
-export default NavbarMenu;
+export default NavbarMenus;
