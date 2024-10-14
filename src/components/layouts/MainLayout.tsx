@@ -33,9 +33,6 @@ export default function MainLayout(props: PropsType): JSX.Element {
 
       <div className="tailwind">
         <Navbar />
-        <Navbar />
-
-        <Navbar />
 
         <main className="mx-auto mb-20 mt-[61px] grid max-w-screen-lg grid-cols-1 gap-y-5 overflow-x-hidden p-4">
           {props.children}
