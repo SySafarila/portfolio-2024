@@ -1,4 +1,4 @@
-import MainLayout from "@/components/layouts/MainLayout";
+import MainLayoutAuth from "@/components/layouts/MainLayoutAuth";
 import { GenerateLicenceInterface } from "@/utils/generateLicence";
 import AOS from "aos";
 import axios, { AxiosError } from "axios";
@@ -203,7 +203,7 @@ const Page: NextPageWithLayout = () => {
 };
 
 Page.getLayout = (page: ReactElement) => {
-  return <MainLayout title="Dashboard Page">{page}</MainLayout>;
+  return <MainLayoutAuth title="Dashboard Page">{page}</MainLayoutAuth>;
 };
 
 export default Page;

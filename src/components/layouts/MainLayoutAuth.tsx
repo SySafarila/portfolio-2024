@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Navbar from "../Navbar";
-import NavbarMenus from "../NavbarMenus";
+import NavbarMenusAuth from "../NavbarMenusAuth";
 
 type PropsType = {
   children: React.ReactElement;
@@ -9,7 +9,7 @@ type PropsType = {
   keywords?: string;
 };
 
-export default function MainLayout(props: PropsType): JSX.Element {
+export default function MainLayoutAuth(props: PropsType): JSX.Element {
   return (
     <>
       <Head>
@@ -36,7 +36,7 @@ export default function MainLayout(props: PropsType): JSX.Element {
         <main className="mx-auto mb-20 mt-[61px] grid max-w-screen-lg grid-cols-1 gap-y-5 overflow-x-hidden p-4">
           {props.children}
         </main>
-        <NavbarMenus />
+        <NavbarMenusAuth />
       </div>
     </>
   );
