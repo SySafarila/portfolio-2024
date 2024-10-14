@@ -8,11 +8,13 @@ const Educations = (): JSX.Element => {
           <div className="absolute left-[0.7rem] top-4 z-10 h-full w-[1px] bg-black"></div>
           <div className="mb-4">
             <h2 className="font-bold">Universitas Putra Indonesia Cianjur</h2>
-            <h2 className="text-sm">Teknik Informatika (S1)</h2>
+            <h2 className="text-sm">
+              Teknik Informatika (S1) - IPK 3.89 (Cum Laude)
+            </h2>
             <p className="max-w-screen-md">
               Mahasiswa Universitas Putra Indonesia (UNPI) Cianjur dengan
               program studi Teknik Informatika (S1), dan lulus tepat waktu
-              dengan predikat &quot;Sangat Memuaskan&quot;.
+              dengan predikat &quot;Cum Laude&quot;.
             </p>
             <span>2020 - 2024</span>
           </div>
