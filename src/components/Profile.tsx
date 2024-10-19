@@ -32,7 +32,7 @@ const Profile = (): JSX.Element => {
           className="flex items-center gap-1 whitespace-nowrap rounded-md bg-gray-200 px-3 py-1 capitalize hover:bg-gray-300"
           data-aos="fade-down"
           data-aos-delay="150"
-          href="/files/resume.pdf"
+          href="/files/Syahrul's ATS Resume.pdf"
           target="_blank"
         >
           <svg
