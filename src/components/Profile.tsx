@@ -21,7 +21,7 @@ const Profile = (): JSX.Element => {
       >
         Saya merupakan lulusan baru dari Universitas Putra Indonesia, Program
         Studi Teknik Informatika (S1), tahun 2024. Saya memiliki pengalaman
-        lebih dari 2 tahun sebagai <i>freelance programmer</i>, baik secara
+        lebih dari 3 tahun sebagai <i>programmer</i>, baik secara
         individu maupun dalam tim. Saat ini, saya terbuka untuk setiap
         kesempatan kerja, baik di dalam maupun di luar bidang keahlian saya,
         dengan tujuan memperluas pengalaman serta membangun relasi baru. Saya
