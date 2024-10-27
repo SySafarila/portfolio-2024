@@ -36,6 +36,15 @@ export type ProjectType = {
 const projects = (): ProjectType[] => {
   const projectsArr: ProjectType[] = [
     {
+      name: "Saweria Formula 1 Radio (Text-To-Speech)",
+      position: "Front-end Developer",
+      start_date: 1729443600000,
+      type: "Individu",
+      description:
+        "The first Saweria.co with Formula 1 radio style (Unofficial)",
+      url: "https://github.com/SySafarila/Saweria-Formula-1-Radio",
+    },
+    {
       name: "SMAN 2 Cibinong",
       position: "Full-stack Developer",
       type: "Tim",
