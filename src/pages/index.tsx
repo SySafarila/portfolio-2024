@@ -8,6 +8,7 @@ import Profile from "@/components/Profile";
 import AOS from "aos";
 import React, { ReactElement, useEffect } from "react";
 import { NextPageWithLayout } from "./_app";
+import TechStack from "@/components/TechStack";
 
 const Page: NextPageWithLayout = () => {
   useEffect(() => {
@@ -21,6 +22,7 @@ const Page: NextPageWithLayout = () => {
       <Profile />
       <Contacts />
       <Languages />
+      <TechStack />
       <div className="grid grid-cols-1 gap-y-5" id="track-records">
         <Experiences />
         <Educations />
