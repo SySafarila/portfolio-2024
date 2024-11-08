@@ -7,7 +7,7 @@ const TechStack = (): JSX.Element => {
       <div className="mt-2 grid grid-cols-1 gap-1 md:grid-cols-2 lg:grid-cols-3">
         <div data-aos="fade-left">
           <span className="font-semibold">Front-end:</span>
-          <ul className="list-inside list-disc">
+          <ul className="list-inside list-disc ml-1">
             <li>HTML</li>
             <li>CSS</li>
             <li>JavaScript</li>
@@ -21,7 +21,7 @@ const TechStack = (): JSX.Element => {
         </div>
         <div data-aos="fade-left">
           <span className="font-semibold">Back-end:</span>
-          <ul className="list-inside list-disc">
+          <ul className="list-inside list-disc ml-1">
             <li>PHP</li>
             <li>Laravel</li>
             <li>Node.js</li>
@@ -32,10 +32,13 @@ const TechStack = (): JSX.Element => {
         </div>
         <div data-aos="fade-left">
           <span className="font-semibold">Lain-lain:</span>
-          <ul className="list-inside list-disc">
+          <ul className="list-inside list-disc ml-1">
             <li>TypeScript</li>
             <li>Docker</li>
             <li>Webpack</li>
+            <li>CI/CD</li>
+            <li>GitHub Actions</li>
+            <li>GIT</li>
             <li>Office (Microsoft & Alternatif)</li>
           </ul>
         </div>
